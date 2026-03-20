@@ -41,6 +41,13 @@
             opacity: 0.1;
         }
     </style>
+    @keyframes fall {
+    to {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+    
 </head>
 <body>
 
@@ -63,7 +70,9 @@
 <hr>
 
 <h2>Choose action:</h2>
-
+    
+<p id="loading">Initializing AI model...</p>
+    
 <button onclick="love()">Run Model</button>
 <button onclick="predict()">Make Prediction</button>
 <button onclick="errorMsg()">Debug Mode</button>
@@ -90,7 +99,18 @@ function errorMsg() {
 function future() {
     document.getElementById("output").innerHTML = "Future prediction: you + me = something very special ✨";
 }
+setTimeout(() => {
+    document.getElementById("loading").innerHTML = "Loading memories...";
+}, 1500);
 
+setTimeout(() => {
+    document.getElementById("loading").innerHTML = "Analyzing feelings...";
+}, 3000);
+
+setTimeout(() => {
+    document.getElementById("loading").innerHTML = "Model ready ❤️";
+}, 4500);
+    
 function secret() {
     document.body.innerHTML = `
         <h1>Secret unlocked 💖</h1>
@@ -102,7 +122,19 @@ function secret() {
     `;
 }
 </script>
+setInterval(() => {
+    let heart = document.createElement("div");
+    heart.innerHTML = "❤️";
+    heart.style.position = "fixed";
+    heart.style.top = "-10px";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = "20px";
+    heart.style.animation = "fall 5s linear";
+    document.body.appendChild(heart);
 
+    setTimeout(() => heart.remove(), 5000);
+}, 500);
+    
 <p style="margin-top:50px; opacity:0.7;">
 Final Output: you are loved more than you think ❤️
 </p>
