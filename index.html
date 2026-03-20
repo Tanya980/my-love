@@ -1,8 +1,65 @@
 <!DOCTYPE html>
 <html>
-<body>
+<head>
+    <title>For Slava ❤️</title>
+</head>
 
-<button onclick="alert('работает!')">Нажми</button>
+<body style="background:black; color:white; text-align:center; font-family:Arial;">
+
+<h1>For Slava ❤️</h1>
+
+<h2>Our memories</h2>
+<img src="1.jpg" width="200">
+<img src="2.jpg" width="200">
+<img src="3.jpg" width="200">
+
+<h2>Buttons</h2>
+
+<button onclick="love()">Love</button>
+<button onclick="msg()">Message</button>
+
+<p id="output"></p>
+
+<button onclick="secret()">Secret</button>
+
+<script>
+function love() {
+    document.getElementById("output").innerText = "I love you ❤️";
+}
+
+function msg() {
+    document.getElementById("output").innerText = "You are very special to me 💖";
+}
+
+function secret() {
+    document.body.innerHTML = "<h1>С днём рождения ❤️</h1><p>Я тебя люблю</p>";
+}
+
+/* ❤️ СЕРДЕЧКИ (ПРОСТО И РАБОТАЕТ) */
+setInterval(function() {
+    var heart = document.createElement("div");
+    heart.innerText = "❤️";
+
+    heart.style.position = "fixed";
+    heart.style.left = Math.random() * window.innerWidth + "px";
+    heart.style.top = "0px";
+
+    document.body.appendChild(heart);
+
+    var pos = 0;
+
+    var fall = setInterval(function() {
+        pos += 3;
+        heart.style.top = pos + "px";
+
+        if (pos > window.innerHeight) {
+            clearInterval(fall);
+            heart.remove();
+        }
+    }, 20);
+
+}, 500);
+</script>
 
 </body>
 </html>
