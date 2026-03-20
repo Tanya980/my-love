@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>For you ❤️</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            text-align: center;
+            font-family: Arial;
+            padding-top: 100px;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            background-color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<h1>AI Analysis Complete</h1>
+<p>Subject: [его имя]</p>
+
+<button onclick="showMessage()">Run Model</button>
+
+<p id="result" style="margin-top:30px;"></p>
+
+<script>
+function showMessage() {
+    document.getElementById("result").innerHTML = "Result: I love you ❤️";
+}
+</script>
+
+</body>
+</html>
