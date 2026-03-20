@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>For Slava ❤️</title>
+
     <style>
         body {
             background: linear-gradient(to bottom, #000000, #1a1a1a);
@@ -9,6 +10,7 @@
             text-align: center;
             font-family: Arial;
             padding: 30px;
+            overflow-x: hidden;
         }
 
         h1 { margin-bottom: 10px; }
@@ -40,15 +42,16 @@
             right: 10px;
             opacity: 0.1;
         }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
     </style>
-    @keyframes fall {
-    to {
-        transform: translateY(100vh);
-        opacity: 0;
-    }
-}
-    
 </head>
+
 <body>
 
 <h1>AI Analysis Report</h1>
@@ -62,7 +65,6 @@
 
 <h2>Our memories 📸</h2>
 
-<!-- ВСТАВЬ СЮДА СВОИ ФОТО -->
 <img src="1.jpg">
 <img src="2.jpg">
 <img src="3.jpg">
@@ -70,9 +72,9 @@
 <hr>
 
 <h2>Choose action:</h2>
-    
+
 <p id="loading">Initializing AI model...</p>
-    
+
 <button onclick="love()">Run Model</button>
 <button onclick="predict()">Make Prediction</button>
 <button onclick="errorMsg()">Debug Mode</button>
@@ -80,7 +82,6 @@
 
 <p id="output"></p>
 
-<!-- СКРЫТАЯ КНОПКА -->
 <button id="secretBtn" onclick="secret()">.</button>
 
 <script>
@@ -99,6 +100,7 @@ function errorMsg() {
 function future() {
     document.getElementById("output").innerHTML = "Future prediction: you + me = something very special ✨";
 }
+
 setTimeout(() => {
     document.getElementById("loading").innerHTML = "Loading memories...";
 }, 1500);
@@ -110,7 +112,7 @@ setTimeout(() => {
 setTimeout(() => {
     document.getElementById("loading").innerHTML = "Model ready ❤️";
 }, 4500);
-    
+
 function secret() {
     document.body.innerHTML = `
         <h1>Secret unlocked 💖</h1>
@@ -121,7 +123,8 @@ function secret() {
         <p>Я тебя люблю 💔</p>
     `;
 }
-</script>
+
+/* ❤️ ПАДАЮЩИЕ СЕРДЕЧКИ */
 setInterval(() => {
     let heart = document.createElement("div");
     heart.innerHTML = "❤️";
@@ -134,7 +137,36 @@ setInterval(() => {
 
     setTimeout(() => heart.remove(), 5000);
 }, 500);
-    
+
+/* 💥 ВЗРЫВ СЕРДЕЦ ПРИ КЛИКЕ */
+document.addEventListener("click", function(e) {
+    for (let i = 0; i < 10; i++) {
+        let heart = document.createElement("div");
+        heart.innerHTML = "❤️";
+
+        heart.style.position = "fixed";
+        heart.style.left = e.clientX + "px";
+        heart.style.top = e.clientY + "px";
+        heart.style.fontSize = "20px";
+
+        document.body.appendChild(heart);
+
+        let x = (Math.random() - 0.5) * 200;
+        let y = (Math.random() - 0.5) * 200;
+
+        heart.animate([
+            { transform: "translate(0,0)", opacity: 1 },
+            { transform: translate(${x}px, ${y}px), opacity: 0 }
+        ], {
+            duration: 1000
+        });
+
+        setTimeout(() => heart.remove(), 1000);
+    }
+});
+
+</script>
+
 <p style="margin-top:50px; opacity:0.7;">
 Final Output: you are loved more than you think ❤️
 </p>
