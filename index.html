@@ -1,38 +1,111 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>For you ❤️</title>
+    <title>For Slava ❤️</title>
     <style>
         body {
-            background-color: black;
+            background: linear-gradient(to bottom, #000000, #1a1a1a);
             color: white;
             text-align: center;
             font-family: Arial;
-            padding-top: 100px;
+            padding: 30px;
         }
+
+        h1 { margin-bottom: 10px; }
+
         button {
-            padding: 15px 30px;
-            font-size: 18px;
-            background-color: white;
-            border: none;
+            padding: 15px 25px;
+            margin: 10px;
+            font-size: 16px;
             cursor: pointer;
+            border: none;
+            border-radius: 10px;
+            background-color: white;
+        }
+
+        #output {
+            margin-top: 30px;
+            font-size: 20px;
+        }
+
+        img {
+            width: 200px;
+            margin: 10px;
+            border-radius: 10px;
+        }
+
+        #secretBtn {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            opacity: 0.1;
         }
     </style>
 </head>
 <body>
 
-<h1>AI Analysis Complete</h1>
-<p>Subject: [его имя]</p>
+<h1>AI Analysis Report</h1>
+<p>Subject: Slava</p>
 
-<button onclick="showMessage()">Run Model</button>
+<p>Intelligence: 99%</p>
+<p>Kindness: 100%</p>
+<p>Cuteness: ERROR (too high 😄)</p>
 
-<p id="result" style="margin-top:30px;"></p>
+<hr>
+
+<h2>Our memories 📸</h2>
+
+<!-- ВСТАВЬ СЮДА СВОИ ФОТО -->
+<img src="photo1.jpg">
+<img src="photo2.jpg">
+<img src="photo3.jpg">
+
+<hr>
+
+<h2>Choose action:</h2>
+
+<button onclick="love()">Run Model</button>
+<button onclick="predict()">Make Prediction</button>
+<button onclick="errorMsg()">Debug Mode</button>
+<button onclick="future()">Future</button>
+
+<p id="output"></p>
+
+<!-- СКРЫТАЯ КНОПКА -->
+<button id="secretBtn" onclick="secret()">.</button>
 
 <script>
-function showMessage() {
-    document.getElementById("result").innerHTML = "Result: I love you ❤️";
+function love() {
+    document.getElementById("output").innerHTML = "Result: I love you ❤️";
+}
+
+function predict() {
+    document.getElementById("output").innerHTML = "Prediction: you are the best thing in my life 💖";
+}
+
+function errorMsg() {
+    document.getElementById("output").innerHTML = "Error: too much love detected 💔";
+}
+
+function future() {
+    document.getElementById("output").innerHTML = "Future prediction: you + me = something very special ✨";
+}
+
+function secret() {
+    document.body.innerHTML = `
+        <h1>Secret unlocked 💖</h1>
+        <p>С днём рождения, Слава ❤️</p>
+        <p>Я очень рада, что ты есть в моей жизни</p>
+        <p>Ты правда особенный для меня</p>
+        <p>И я хочу, чтобы ты всегда был счастлив</p>
+        <p>Я тебя люблю 💔</p>
+    `;
 }
 </script>
+
+<p style="margin-top:50px; opacity:0.7;">
+Final Output: you are loved more than you think ❤️
+</p>
 
 </body>
 </html>
